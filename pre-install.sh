@@ -1,11 +1,9 @@
 #!/bin/bash
 
 # Check if Zsh is installed
-
- # Command to install Zsh depending on the distribution
- sudo apt update
- sudo apt install zsh
-
+# Command to install Zsh depending on the distribution
+sudo apt update
+sudo apt install zsh
 
 # Check if oh-my-zsh is installed
 OMZDIR="$HOME/.oh-my-zsh"
@@ -17,21 +15,26 @@ else
   upgrade_oh_my_zsh
 fi
 
-
-
+# Install zsh-autosuggestions, zsh-history-substring-search, and zsh-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-history-substring-search $ZSH/custom/plugins/zsh-history-substring-search
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH/custom/plugins/zsh-syntax-highlighting
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-git clone https://github.com/Pilaton/OhMyZsh-full-autoupdate.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/ohmyzsh-full-autoupdate
-git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-~/.fzf/install --nocomfirm
 
+# Install Powerlevel10k theme
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+
+# Install OhMyZsh full autoupdate plugin
+git clone https://github.com/Pilaton/OhMyZsh-full-autoupdate.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/ohmyzsh-full-autoupdate
+
+# Install fzf
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install --no-confirm
 
 # Change default shell
-if [! $0 = "-zsh"]; then
+if [ ! $0 = "-zsh" ]; then
   echo 'Changing default shell to zsh'
   chsh -s /bin/zsh
 else
   echo 'Already using zsh'
 fi
+
