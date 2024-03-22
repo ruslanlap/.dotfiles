@@ -124,7 +124,7 @@ source $ZSH/oh-my-zsh.sh
 
 # Use history substring search
 zstyle ':completion:*' menu select
-source $HOME/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+#source $HOME/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 alias upgrade="sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get clean"
 autoload -Uz up-line-or-beginning-search
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
@@ -141,7 +141,7 @@ zle -N down-line-or-beginning-search
 bindkey '^[[B' down-line-or-beginning-search
 
 
-source $HOME/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+#source $HOME/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 alias pf="find . -exec ls --color=auto {} + | fzf --preview='less {}' --bind shift-up:preview-page-up,shift-down:preview-page-down"
 if [[ -f ~/.dircolors ]] ; then
