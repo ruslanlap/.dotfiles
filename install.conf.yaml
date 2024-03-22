@@ -9,10 +9,6 @@
     ~/.bashrc: bashrc
     ~/.p10k.zsh: p10k.zsh
 
-- shell:
-  - [git submodule update --init --recursive, Installing submodules]
-  - [sudo apt install zsh]
-  - [sudo rm -r ~/.zshrc]
 - link:
     ~/.profile: profile
     ~/.p10k.zsh: p10k.zsh
