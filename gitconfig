@@ -1,0 +1,7 @@
+[user]
+	name = ruslanlap
+	email = lapin@ucu.edu.ua
+[credential]
+	helper = store
+[safe]
+	directory = /home/ruslan/scripts/k-monitoring
