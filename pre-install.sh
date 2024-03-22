@@ -1,14 +1,11 @@
 #!/bin/bash
 
 # Check if Zsh is installed
-if ! command -v zsh &> /dev/null; then
-    echo "Zsh is not installed. Installing..."
 
-    # Command to install Zsh depending on the distribution
-    # For example, for Ubuntu it might be:
-    sudo apt update
-    sudo apt install zsh
-fi
+ # Command to install Zsh depending on the distribution
+ sudo apt update
+ sudo apt install zsh
+
 
 # Check if oh-my-zsh is installed
 OMZDIR="$HOME/.oh-my-zsh"
