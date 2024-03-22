@@ -1,5 +1,15 @@
 #!/bin/bash
 
+# Check if Zsh is installed
+if ! command -v zsh &> /dev/null; then
+    echo "Zsh is not installed. Installing..."
+
+    # Command to install Zsh depending on the distribution
+    # For example, for Ubuntu it might be:
+    sudo apt update
+    sudo apt install zsh
+fi
+
 # Check if oh-my-zsh is installed
 OMZDIR="$HOME/.oh-my-zsh"
 if [ ! -d "$OMZDIR" ]; then
@@ -18,7 +28,7 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH/custom/p
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 git clone https://github.com/Pilaton/OhMyZsh-full-autoupdate.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/ohmyzsh-full-autoupdate
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-~/.fzf/install
+~/.fzf/install --nocomfirm
 
 
 # Change default shell
