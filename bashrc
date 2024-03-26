@@ -130,3 +130,4 @@ LS_COLORS=$LS_COLORS:'di=0;35:' ; export LS_COLORS
 eval "$(dircolors /etc/DIR_COLORS)"
 
 alias config='/usr/bin/git --git-dir=/home/ruslan/.cfg/ --work-tree=/home/ruslan'
+alias ls='lsd'

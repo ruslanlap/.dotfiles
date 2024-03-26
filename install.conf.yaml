@@ -5,22 +5,38 @@
 - clean: ['~', '~/.oh-my-zsh/custom/', '~/.oh-my-zsh/custom/plugins/']
 
 - link:
+    ~/.dotfiles: ''
     ~/.vimrc: vimrc
     ~/.bashrc: bashrc
     ~/.p10k.zsh: p10k.zsh
-
-- link:
     ~/.profile: profile
     ~/.p10k.zsh: p10k.zsh
     ~/.bashrc: bashrc
     ~/.bash_logout: bash_logout
     ~/.gitconfig: gitconfig
     ~/.vimrc: vimrc
-    ~/.zshrc: zshrc
+    ~/.zshrc:
+      force: true
+      path: zshrc
     ~/.oh-my-zsh: oh-my-zsh
 
+
+- apt:
+  - zsh
+  - bat
 
 - shell:
   - [sh pre-install.sh, Running pre installation script]
   - [mkdir -p ~/.oh-my-zsh/custom/, Creating oh-my-zsh custom forlders]
   - [mkdir -p ~/.oh-my-zsh/custom/plugins, Creating oh-my-zsh custom plugins forlders]
+  - [wget https://github.com/lsd-rs/lsd/releases/download/v1.1.2/lsd-v1.1.2-x86_64-unknown-linux-gnu.tar.gz]
+  - [tar -xzf lsd-v1.1.2-x86_64-unknown-linux-gnu.tar.gz]
+  - [cd lsd-v1.1.2-x86_64-unknown-linux-gnu]
+  - [sudo cp lsd /usr/local/bin]
+  - [sudo chmod +x /usr/local/bin/lsd]
+  - [lsd --version]
+  - [echo "alias ls='lsd'" >> ~/.bashrc]
+  - [chsh -s $(which zsh), Making zsh the default shell]
+  - [git submodule update --init --recursive, Installing submodules]
+
+
