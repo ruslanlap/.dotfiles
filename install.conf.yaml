@@ -28,3 +28,8 @@
   - [chsh, -s, $(which zsh)]
   - [git submodule update --init --recursive, Install submodules]
   - [echo "alias ls='lsd'" >> ~/.bashrc]
+- clean: ['~']
+
+- link:
+
+
