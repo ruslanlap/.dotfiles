@@ -152,3 +152,4 @@ fi
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
 
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias ls='lsd'
