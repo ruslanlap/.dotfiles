@@ -22,9 +22,8 @@
 
 
 - shell:
+  - [chmod +x pre-install.sh]
   - [sh pre-install.sh, Running pre installation script]
-  - [echo "alias ls='lsd'" >> ~/.bashrc]
   - [chsh -s $(which zsh), Making zsh the default shell]
-  - [git submodule update --init --recursive, Installing submodules]
-
-
+  - [git submodule update --init --recursive, Install submodules]
+  - [echo "alias ls='lsd'" >> ~/.bashrc]

@@ -1,13 +1,29 @@
 #!/bin/bash
 
 # Check if oh-my-zsh is installed
-OMZDIR="$HOME/.oh-my-zsh"
-if [ ! -d "$OMZDIR" ]; then
-  echo 'Installing oh-my-zsh'
-  /bin/sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+#OMZDIR="$HOME/.oh-my-zsh"
+#if [ ! -d "$OMZDIR" ]; then
+ # echo 'Installing oh-my-zsh'
+ # /bin/sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+#else
+ # echo 'Updating oh-my-zsh'
+  #upgrade_oh_my_zsh
+#fi
+
+USER=$(who | cut -d' ' -f1)
+
+if [[ -d ~/.oh-my-zsh ]]; then
+   echo "Oh My Zsh is already installed"
+ else
+   RUN_ZSH=no
+   CHSH=no
+   sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+ fi
+
+if (cat /etc/passwd | grep $USER | grep /usr/bin/zsh); then
+  echo "ZSH is already the default shell"
 else
-  echo 'Updating oh-my-zsh'
-  upgrade_oh_my_zsh
+  chsh -s /usr/bin/zsh
 fi
 
 
