@@ -21,7 +21,7 @@
     ~/.zshrc:
       force: true
       path: zshrc
-    ~/.oh-my-zsh: oh-my-zsh
+    ~/.oh-my-zsh: .oh-my-zsh
 
 
 - shell:
