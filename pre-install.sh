@@ -19,11 +19,3 @@ git clone https://github.com/Pilaton/OhMyZsh-full-autoupdate.git ${ZSH_CUSTOM:-~
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
 
-
-# Change default shell
-if [! $0 = "-zsh"]; then
-  echo 'Changing default shell to zsh'
-  chsh -s $(which zsh)
-else
-  echo 'Already using zsh'
-fi
