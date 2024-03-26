@@ -1,14 +1,7 @@
 #!/bin/bash
 
-# Check if oh-my-zsh is installed
-OMZDIR="$HOME/.oh-my-zsh"
-if [ ! -d "$OMZDIR" ]; then
   echo 'Installing oh-my-zsh'
-  /bin/sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-else
-  echo 'Updating oh-my-zsh'
-  upgrade_oh_my_zsh
-fi
+  /bin/sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" --unattended
 
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH/custom/plugins/zsh-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
