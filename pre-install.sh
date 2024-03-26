@@ -24,7 +24,7 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 # Change default shell
 if [! $0 = "-zsh"]; then
   echo 'Changing default shell to zsh'
-  chsh -s /bin/zsh
+  chsh -s $(which zsh)
 else
   echo 'Already using zsh'
 fi
