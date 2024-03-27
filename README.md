@@ -67,12 +67,6 @@ If you want to remove dotfiles:
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## Remote settings via SSH
-
-Change `PermitLocalCommand` to `yes` in `/etc/ssh/config`
-
-**Add this to ~/.ssh/config**
-
 
 ## Remote settings via SSH
 change `PermitLocalCommand` to `yes` in `/etc/ssh/config`
