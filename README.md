@@ -13,7 +13,7 @@ Dotbot is a tool that makes the management of dotfiles simple and efficient. It 
 ## Structure
 
 - [Instaliation](#installation)
-- [Remote settings via SSH](#Remote settings via SSH)
+- [Remote settings via SSH](#remote-settings-via-ssh)
 
 ## Usage
 
