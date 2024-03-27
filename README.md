@@ -75,7 +75,7 @@ Change `PermitLocalCommand` to `yes` in `/etc/ssh/config`
 
 
 ## Remote settings via SSH
-change PermitLocalCommand to yes in /etc/ssh/config
+change `PermitLocalCommand` to `yes` in `/etc/ssh/config`
 
 add this to ~/.ssh/config
   ```
