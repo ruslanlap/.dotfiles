@@ -1,10 +1,20 @@
+
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
 
-export LS_COLORS="$LS_COLORS:di=34"
+export VIRTUAL_ENV_DISABLE_PROMPT=1  # Prevents default venv behavior
 
-export TERM="xterm-256color"
+function virtualenv_prompt {
+    if [[ -n "$VIRTUAL_ENV" ]]; then
+        echo "($(basename $VIRTUAL_ENV)) "
+    fi
+}
+
+PROMPT='$(virtualenv_prompt)'$PROMPT
+
+
 
 
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
@@ -23,6 +33,8 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+#ZSH_THEME="random"
+
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to pick from when loading at random
@@ -85,7 +97,7 @@ zstyle ':omz:update' mode auto      # update automatically without asking
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git fzf dirhistory command-not-found copyfile github zsh-autosuggestions web-search zsh-history-substring-search zsh-syntax-highlighting history copyfile z ohmyzsh-full-autoupdate)
+plugins=(git fzf dirhistory command-not-found copyfile github zsh-autosuggestions web-search zsh-history-substring-search zsh-syntax-highlighting history copyfile z ohmyzsh-full-autoupdate virtualenv) 
 fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
 source $ZSH/oh-my-zsh.sh
 
@@ -162,4 +174,4 @@ function mkcd () {
   mkdir "$1" && cd "$1"
 }
 alias acp='git add . && git commit -m new add && git push'
-alias acp='git add . && git commit -m new add && git push'
+export VIRTUAL_ENV_DISABLE_PROMPT=
