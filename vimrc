@@ -35,7 +35,7 @@ call plug#begin('~/.vim/plugged')
 "{{ Junegunn Choi Plugins }}
     Plug 'junegunn/goyo.vim'                           " Distraction-free viewing
     Plug 'junegunn/limelight.vim'                      " Hyperfocus on a range
-    Plug 'junegunn/vim-emoji'                          " Vim needs emojis!
+    Plug 'junegunn/vim-emoji'  
 
 call plug#end()
 set number
@@ -225,3 +225,6 @@ set guioptions-=m  "remove menu bar
 set guioptions-=T  "remove toolbar
 set guioptions-=r  "remove right-hand scroll bar
 set guioptions-=L  "remove left-hand scroll bar
+set encoding=utf-8
+set fileencoding=utf-8
+syntax on

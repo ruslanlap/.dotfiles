@@ -173,5 +173,5 @@ alias upd='sudo apt update && sudo apt upgrade -y'
 function mkcd () {
   mkdir "$1" && cd "$1"
 }
-alias acp='git add . && git commit -m new add && git push'
+alias acp='git add . && git commit -m "new add" && git push'
 export VIRTUAL_ENV_DISABLE_PROMPT=
