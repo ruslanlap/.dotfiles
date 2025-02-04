@@ -1,4 +1,4 @@
--- defaults:
+- defaults:
     link:
       create: true
       relink: true
@@ -15,7 +15,6 @@
     ~/.profile: profile
     ~/.bash_logout: bash_logout
     ~/.gitconfig: gitconfig
-    ~/.vimrc: vimrc
     ~/.zshrc:
       force: true
       path: zshrc
@@ -25,42 +24,36 @@
       path: nvim
 
 - shell:
-  - description: Run pre installation script
-    command: chmod +x pre-install.sh && sh pre-install.sh
-  
-  - description: Installing Zsh if not present
-    command: |
-      if ! command -v zsh >/dev/null 2>&1; then
-        sudo apt update && sudo apt install -y zsh
-      fi
-  
-  - description: Setting Zsh as default shell
-    command: |
-      if [[ $SHELL != "/usr/bin/zsh" ]]; then
-        chsh -s $(which zsh)
-        sudo chsh -s $(which zsh)
-      fi
-  
-  - description: Installing Neovim if not present
-    command: |
-      if ! command -v nvim >/dev/null 2>&1; then
-        sudo apt update && sudo apt install -y neovim
-      fi
-  
-  - description: Backing up existing Neovim configurations
-    command: |
-      mv ~/.config/nvim{,.bak} 2>/dev/null || true
-      mv ~/.local/share/nvim{,.bak} 2>/dev/null || true
-      mv ~/.local/state/nvim{,.bak} 2>/dev/null || true
-      mv ~/.cache/nvim{,.bak} 2>/dev/null || true
-  
-  - description: Installing LazyVim starter configuration
-    command: |
-      git clone https://github.com/LazyVim/starter ~/.config/nvim
-      rm -rf ~/.config/nvim/.git
-  
-  - description: Install submodules
-    command: git submodule update --init --recursive
-  
-  - command: echo "alias ls='lsd'" >> ~/.bashrc
-  clean: ['~']
+    - [chmod +x pre-install.sh]
+    - [sh pre-install.sh, "Running pre installation script"]
+    - command: >
+        if ! command -v zsh >/dev/null 2>&1; then
+          sudo apt update && sudo apt install -y zsh;
+        fi
+      description: Installing Zsh if not present
+    - command: >
+        if [[ $SHELL != "/usr/bin/zsh" ]]; then
+          chsh -s $(which zsh);
+          sudo chsh -s $(which zsh);
+        fi
+      description: Setting Zsh as default shell for current and root user
+    - command: >
+        if ! command -v nvim >/dev/null 2>&1; then
+          sudo apt update && sudo apt install -y neovim;
+        fi
+      description: Installing Neovim if not present
+    - command: >
+        mv ~/.config/nvim{,.bak} 2>/dev/null || true;
+        mv ~/.local/share/nvim{,.bak} 2>/dev/null || true;
+        mv ~/.local/state/nvim{,.bak} 2>/dev/null || true;
+        mv ~/.cache/nvim{,.bak} 2>/dev/null || true
+      description: Backing up existing Neovim configurations
+    - command: >
+        git clone https://github.com/LazyVim/starter ~/.config/nvim;
+        rm -rf ~/.config/nvim/.git
+      description: Installing LazyVim starter configuration
+    - [git submodule update --init --recursive, "Install submodules"]
+    - [echo "alias ls='lsd'" >> ~/.bashrc]
+
+- clean: ['~']
+
