@@ -8,20 +8,28 @@
 - clean: ['~', '~/.oh-my-zsh', '~/.config/nvim']
 
 - link:
+    # Якщо у вас загальний .dotfiles-репозиторій
+    # (можна залишити його тут або видалити, якщо не потрібно)
     ~/.dotfiles: ''
+
     ~/.vimrc: vimrc
     ~/.bashrc: bashrc
     ~/.p10k.zsh: p10k.zsh
     ~/.profile: profile
     ~/.bash_logout: bash_logout
     ~/.gitconfig: gitconfig
+
     ~/.zshrc:
       force: true
       path: zshrc
+
     ~/.oh-my-zsh: .oh-my-zsh
-    ~/.config/nvim:
+
+    # Прибираємо посилання на всю ~/.config/nvim
+    # і робимо лінк лише для init.lua
+    ~/.config/nvim/init.lua:
       force: true
-      path: nvim
+      path: nvim/init.lua
 
 - shell:
     - [chmod +x pre-install.sh]
