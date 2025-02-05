@@ -1,5 +1,3 @@
-
-
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -171,7 +169,7 @@ alias ls='lsd'
 alias upd='sudo apt update && sudo apt upgrade -y'
 #mkcd
 function mkcd () {
-  mkdir "$1" && cd "$1"
+  mkdir "$1" && cd "$1" && pwd
 }
 alias acp='git add . && git commit -m "new add" && git push'
 export VIRTUAL_ENV_DISABLE_PROMPT=
