@@ -168,8 +168,25 @@ alias ls='lsd'
 [[ ! -f ~/.dotfiles/p10k.zsh ]] || source ~/.dotfiles/p10k.zsh
 alias upd='sudo apt update && sudo apt upgrade -y'
 #mkcd
-function mkcd () {
-  mkdir "$1" && cd "$1" && pwd
-}
+#function mkcd () {
+ # mkdir "$1" && cd "$1" && pwd
+#}
 alias acp='git add . && git commit -m "new add" && git push'
 export VIRTUAL_ENV_DISABLE_PROMPT=
+#mkcd2
+function mkcd() {
+  # Check if a directory name was provided
+  if [[ -z "$1" ]]; then
+    echo "Usage: mkcd <directory_name>"
+    return 1
+  fi
+
+  # Attempt to create the directory (with -p to avoid errors if it already exists)
+  if mkdir -p "$1"; then
+    cd "$1" && echo "Changed to directory: $(pwd)"
+  else
+    echo "Failed to create directory: $1"
+    return 1
+  fi
+}
+
