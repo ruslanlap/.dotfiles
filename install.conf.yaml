@@ -8,7 +8,6 @@
 - clean: ['~', '~/.oh-my-zsh']
 
 - link:
-    ~/.config/nvim: nvim  # Link the entire nvim folder
     # If you have a general .dotfiles repository
     # (you can keep it here or remove if not needed)
     ~/.dotfiles: ''
@@ -27,7 +26,6 @@
 - shell:
     - [chmod +x pre-install.sh]
     - [sh pre-install.sh, "Running pre installation script"]
-    # No need for LazyVim installation here since it's now in pre-install.sh
     - command: >
         if ! command -v zsh >/dev/null 2>&1; then
           sudo apt update && sudo apt install -y zsh;
