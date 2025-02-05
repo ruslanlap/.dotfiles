@@ -5,8 +5,7 @@ vim.cmd[[colorscheme tokyonight-storm]]
 vim.cmd [[
     highlight @keyword.import guifg=#f7768e
 ]]
-
--- Додайте цей код у ваш init.lua
-for _, group in ipairs(vim.fn.getcompletion("@lsp", "highlight")) do
-    vim.api.nvim_set_hl(0, group, {})
-end
+vim.cmd("hi NoiceCmdlineIconCmdline guibg=#282828 gui=bold")
+vim.cmd("hi NoiceCmdlinePopupBorderHelp guifg=#a6e3a1 guibg=#282828 gui=bold")
+vim.cmd("hi NoiceCmdlinePopupBorderCmdline guifg=#a6e3a1 gui=bold")
+-- Додайте конфігурацію для суцільної лінії через Noice налаштування
