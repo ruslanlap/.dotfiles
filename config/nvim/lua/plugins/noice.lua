@@ -11,16 +11,8 @@ return {
           },
           relative = "editor",
           border = {
-            style = "rounded",
+            style = "single", -- changed to single line
             padding = { 0, 1 },
-            color = "#00FF00", -- Green border
-          },
-          win_options = {
-            winblend = 0,
-            winhighlight = {
-              Normal = "NoiceCmdlinePopupNormal",
-              FloatBorder = "NoiceCmdlinePopupBorder",
-            },
           },
           size = {
             width = "auto",
@@ -31,18 +23,12 @@ return {
         enabled = true,
         view = "cmdline_popup",
         format = {
-          -- Command mode
-          cmdline = { pattern = "^:", icon = "⮞ ", lang = "vim" },
-          -- Search patterns
+          cmdline = { pattern = "^:", icon = "▶ ", lang = "vim" },
           search_down = { kind = "search", pattern = "^/", icon = "🔍 ", lang = "regex" },
           search_up = { kind = "search", pattern = "^%?", icon = "🔎 ", lang = "regex" },
-          -- Shell commands
           shell = { pattern = "^!", icon = "🐚 ", lang = "bash" },
-          -- Lua commands
           lua = { pattern = "^:%s*lua%s+", icon = "🌙 ", lang = "lua" },
-          -- Help commands
           help = { pattern = "^:%s*he?l?p?%s+", icon = "❓ ", lang = "help" },
-          -- Calculator
           calculator = { pattern = "^=", icon = "🧮 ", lang = "vim" },
         },
       },
@@ -58,31 +44,14 @@ return {
         enabled = true,
         backend = "nui",
         kind_icons = {
-          Class = "📚 ",
-          Color = "🎨 ",
-          Constant = "📕 ",
-          Constructor = "🔨 ",
-          Enum = "📑 ",
-          EnumMember = "📝 ",
-          Field = "🏷️ ",
-          File = "📄 ",
-          Folder = "📁 ",
-          Function = "⚡ ",
-          Interface = "🔌 ",
-          Keyword = "🔑 ",
-          Method = "🔮 ",
-          Module = "📦 ",
-          Property = "💎 ",
-          Snippet = "✂️ ",
-          String = "🔤 ",
-          Variable = "📎 ",
+          Class = "📚 ", Color = "🎨 ", Constant = "📕 ",
+          Constructor = "🔨 ", Enum = "📑 ", EnumMember = "📝 ",
+          Field = "🏷️ ", File = "📄 ", Folder = "📁 ",
+          Function = "⚡ ", Interface = "🔌 ", Keyword = "🔑 ",
+          Method = "🔮 ", Module = "📦 ", Property = "💎 ",
+          Snippet = "✂️ ", String = "🔤 ", Variable = "📎 ",
         },
-      },
-      highlights = {
-        NoiceCmdlinePopupBorder = { fg = "#00FF00" }, -- Ensure the border is green
-        NoiceCmdlinePopupNormal = { bg = "#1c1c1c" }, -- Adjust background if needed
       },
     },
   },
 }
-
