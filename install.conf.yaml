@@ -5,7 +5,7 @@
     shell:
       stderr: true
 
-- clean: ['~', '~/.oh-my-zsh', '~/.config/nvim']
+- clean: ['~', '~/.oh-my-zsh']
 
 - link:
     ~/.config/nvim: nvim  # Лінкуємо всю папку nvim
@@ -27,6 +27,7 @@
       path: zshrc
 
     ~/.oh-my-zsh: .oh-my-zsh
+    ~/.config: .config
 
 - shell:
     - [chmod +x pre-install.sh]

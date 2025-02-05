@@ -1,0 +1,1 @@
+/home/ubuntu/.dotfiles/nvim/init.lua
