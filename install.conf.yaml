@@ -27,7 +27,7 @@
       path: zshrc
 
     ~/.oh-my-zsh: .oh-my-zsh
-    ~/.config: .config
+    ~/.config: config
 
 - shell:
     - [chmod +x pre-install.sh]
