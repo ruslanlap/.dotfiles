@@ -164,6 +164,9 @@ typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias ls='lsd'
 
+
+
+
 # To customize prompt, run `p10k configure` or edit ~/.dotfiles/p10k.zsh.
 [[ ! -f ~/.dotfiles/p10k.zsh ]] || source ~/.dotfiles/p10k.zsh
 alias upd='sudo apt update && sudo apt upgrade -y'
