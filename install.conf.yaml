@@ -8,30 +8,26 @@
 - clean: ['~', '~/.oh-my-zsh']
 
 - link:
-    ~/.config/nvim: nvim  # Лінкуємо всю папку nvim
-
-- link:
-    # Якщо у вас загальний .dotfiles-репозиторій
-    # (можна залишити його тут або видалити, якщо не потрібно)
+    ~/.config/nvim: nvim  # Link the entire nvim folder
+    # If you have a general .dotfiles repository
+    # (you can keep it here or remove if not needed)
     ~/.dotfiles: ''
-
     ~/.vimrc: vimrc
     ~/.bashrc: bashrc
     ~/.p10k.zsh: p10k.zsh
     ~/.profile: profile
     ~/.bash_logout: bash_logout
     ~/.gitconfig: gitconfig
-
     ~/.zshrc:
       force: true
       path: zshrc
-
     ~/.oh-my-zsh: .oh-my-zsh
     ~/.config: config
 
 - shell:
     - [chmod +x pre-install.sh]
     - [sh pre-install.sh, "Running pre installation script"]
+    # No need for LazyVim installation here since it's now in pre-install.sh
     - command: >
         if ! command -v zsh >/dev/null 2>&1; then
           sudo apt update && sudo apt install -y zsh;
@@ -47,18 +43,7 @@
           sudo apt update && sudo apt install -y neovim;
         fi
       description: Installing Neovim if not present
-    - command: >
-        mv ~/.config/nvim{,.bak} 2>/dev/null || true;
-        mv ~/.local/share/nvim{,.bak} 2>/dev/null || true;
-        mv ~/.local/state/nvim{,.bak} 2>/dev/null || true;
-        mv ~/.cache/nvim{,.bak} 2>/dev/null || true
-      description: Backing up existing Neovim configurations
-    - command: >
-        git clone https://github.com/LazyVim/starter ~/.config/nvim;
-        rm -rf ~/.config/nvim/.git
-      description: Installing LazyVim starter configuration
     - [git submodule update --init --recursive, "Install submodules"]
     - [echo "alias ls='lsd'" >> ~/.bashrc]
 
 - clean: ['~']
-
