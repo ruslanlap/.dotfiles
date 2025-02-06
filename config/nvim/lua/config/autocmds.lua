@@ -5,4 +5,23 @@
 -- with `vim.api.nvim_create_autocmd`
 --
 -- Or remove existing autocmds by their group name (which is prefixed with `lazyvim_` for the defaults)
--- e.g. vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
+--evim.api.nvim_create_autocmd("VimLeave", {
+--
+--
+vim.api.nvim_create_autocmd("VimLeave", {
+  pattern = "*",
+  callback = function()
+    vim.fn.system('printf "\\e[5 q" > $TTY')
+  end,
+})
+
+
+-- Restore cursor blinking on exit
+vim.api.nvim_create_autocmd("VimLeave", {
+  pattern = "*",
+  callback = function()
+    vim.opt.guicursor = "a:blinkwait700-blinkoff400-blinkon250"
+    -- Reset cursor to default blinking block
+    vim.fn.system('printf "\\e[1 q\\e[?12h" > $TTY')
+  end,
+})

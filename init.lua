@@ -5,3 +5,4 @@ vim.cmd[[colorscheme tokyonight-storm]]
 vim.cmd [[
     highlight @keyword.import guifg=#f7768e
 ]]
+:set guicursor=

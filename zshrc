@@ -193,3 +193,6 @@ function mkcd() {
   fi
 }
 
+
+# Created by `pipx` on 2025-02-05 19:30:28
+export PATH="$PATH:/home/ubuntu/.local/bin"
