@@ -21,7 +21,9 @@
       force: true
       path: zshrc
     ~/.oh-my-zsh: .oh-my-zsh
-    ~/.config: config
+    ~/.config:
+      force: true
+      path: config
 
 - shell:
     - [chmod +x pre-install.sh]
