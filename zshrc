@@ -201,3 +201,6 @@ function mkcd() {
 export PATH="$PATH:/home/ubuntu/.local/bin"
 
 
+alias py='python3'
+
+
